@@ -69,10 +69,10 @@ int main(void)
   */
 
   /* TODO - Add your application code here */
-  GPIO mode => OUT;
-  Output type => PushPull;
-  PullUp PullDown  => UP;
-  GPIO speed  => 40MHz;
+  GPIOA->MODER |= (uint32_t) 0b01<<10;
+  GPIOA->OTYPER &= ~(uint32_t) 0<<5;
+  GPIOA->PUPDR |= (uint32_t) 0b01<<10;
+  GPIOA->OSPEEDR |= (uint32_t) 0b11<<10;
 
   /* Infinite loop */
   while (1)
