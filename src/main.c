@@ -84,11 +84,15 @@ int main(void)
   GPIOA->OTYPER &= ~(uint32_t) 0<<13;
   GPIOA->PUPDR &= ~(uint32_t) 0<<13;
 
+  int BUTTON= 0;
+
   /* Infinite loop */
   while (1)
   {
 	i++;
 	GPIOA->ODR ^= (uint32_t) 0b01<<5;
+//	if GPIOA->IDR (uint32_t) 0b== 1
+//			BUTTON= (BUTTON+1)%2;
   }
   return 0;
 }
