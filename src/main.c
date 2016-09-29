@@ -80,6 +80,10 @@ int main(void)
   GPIOA->BSRRL |= (uint32_t) 0b01<<5;
   GPIOA->BSRRH |= (uint32_t) 0b01<<5;
 
+  GPIOA->MODER &= ~(uint32_t) 0<<13;
+  GPIOA->OTYPER &= ~(uint32_t) 0<<13;
+  GPIOA->PUPDR &= ~(uint32_t) 0<<13;
+
   /* Infinite loop */
   while (1)
   {
