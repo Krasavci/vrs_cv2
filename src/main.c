@@ -61,15 +61,15 @@ int main(void)
   //uloha 1
 
   GPIOA->MODER |= (uint32_t) 0b01<<10;
-  GPIOA->OTYPER &= ~(uint32_t) 0<<5;
+  GPIOA->OTYPER &= ~(uint32_t) 0b1<<5;
   GPIOA->PUPDR |= (uint32_t) 0b01<<10;
   GPIOA->OSPEEDR |= (uint32_t) 0b11<<10;
 
-  GPIOA->ODR |= (uint32_t) 0b01<<5;
-  GPIOA->ODR &= ~(uint32_t) 0b01<<5;
+  GPIOA->ODR |= (uint32_t) 0b1<<5;
+  GPIOA->ODR &= ~(uint32_t) 0b1<<5;
 
-  GPIOA->BSRRL |= (uint32_t) 0b01<<5;
-  GPIOA->BSRRH |= (uint32_t) 0b01<<5;
+  GPIOA->BSRRL |= (uint32_t) 0b1<<5;
+  GPIOA->BSRRH |= (uint32_t) 0b1<<5;
 
 
   //uloha 2

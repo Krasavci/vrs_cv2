@@ -224,12 +224,12 @@ int main(void)
  800021e:	681b      	ldr	r3, [r3, #0]
  8000220:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
  8000224:	6013      	str	r3, [r2, #0]
-  GPIOA->OTYPER &= ~(uint32_t) 0<<5;
+  GPIOA->OTYPER &= ~(uint32_t) 0b1<<5;
  8000226:	4a60      	ldr	r2, [pc, #384]	; (80003a8 <main+0x1b8>)
  8000228:	4b5f      	ldr	r3, [pc, #380]	; (80003a8 <main+0x1b8>)
  800022a:	889b      	ldrh	r3, [r3, #4]
  800022c:	b29b      	uxth	r3, r3
- 800022e:	f023 031f 	bic.w	r3, r3, #31
+ 800022e:	f023 033f 	bic.w	r3, r3, #63	; 0x3f
  8000232:	b29b      	uxth	r3, r3
  8000234:	8093      	strh	r3, [r2, #4]
   GPIOA->PUPDR |= (uint32_t) 0b01<<10;
@@ -245,7 +245,7 @@ int main(void)
  8000248:	f443 6340 	orr.w	r3, r3, #3072	; 0xc00
  800024c:	6093      	str	r3, [r2, #8]
 
-  GPIOA->ODR |= (uint32_t) 0b01<<5;
+  GPIOA->ODR |= (uint32_t) 0b1<<5;
  800024e:	4a56      	ldr	r2, [pc, #344]	; (80003a8 <main+0x1b8>)
  8000250:	4b55      	ldr	r3, [pc, #340]	; (80003a8 <main+0x1b8>)
  8000252:	8a9b      	ldrh	r3, [r3, #20]
@@ -253,7 +253,7 @@ int main(void)
  8000256:	f043 0320 	orr.w	r3, r3, #32
  800025a:	b29b      	uxth	r3, r3
  800025c:	8293      	strh	r3, [r2, #20]
-  GPIOA->ODR &= ~(uint32_t) 0b01<<5;
+  GPIOA->ODR &= ~(uint32_t) 0b1<<5;
  800025e:	4a52      	ldr	r2, [pc, #328]	; (80003a8 <main+0x1b8>)
  8000260:	4b51      	ldr	r3, [pc, #324]	; (80003a8 <main+0x1b8>)
  8000262:	8a9b      	ldrh	r3, [r3, #20]
@@ -262,7 +262,7 @@ int main(void)
  800026a:	b29b      	uxth	r3, r3
  800026c:	8293      	strh	r3, [r2, #20]
 
-  GPIOA->BSRRL |= (uint32_t) 0b01<<5;
+  GPIOA->BSRRL |= (uint32_t) 0b1<<5;
  800026e:	4a4e      	ldr	r2, [pc, #312]	; (80003a8 <main+0x1b8>)
  8000270:	4b4d      	ldr	r3, [pc, #308]	; (80003a8 <main+0x1b8>)
  8000272:	8b1b      	ldrh	r3, [r3, #24]
@@ -270,7 +270,7 @@ int main(void)
  8000276:	f043 0320 	orr.w	r3, r3, #32
  800027a:	b29b      	uxth	r3, r3
  800027c:	8313      	strh	r3, [r2, #24]
-  GPIOA->BSRRH |= (uint32_t) 0b01<<5;
+  GPIOA->BSRRH |= (uint32_t) 0b1<<5;
  800027e:	4a4a      	ldr	r2, [pc, #296]	; (80003a8 <main+0x1b8>)
  8000280:	4b49      	ldr	r3, [pc, #292]	; (80003a8 <main+0x1b8>)
  8000282:	8b5b      	ldrh	r3, [r3, #26]
