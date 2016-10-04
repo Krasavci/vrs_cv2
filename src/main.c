@@ -53,6 +53,7 @@ int main(void)
   int BUTTON = 0;
   int BUTTON_OLD = 0;
   int Change_Mod = 0;
+  int check = 0;
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
 
@@ -85,25 +86,32 @@ int main(void)
 	BUTTON = ((GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13))+1)%2;
 	j=0;
 //uloha3(1)
-	while (j<2000){
+/*
+	while (j<100000){
 		GPIOA->ODR |= (uint32_t) 0b01<<5;
 		j++;
 	}
 	while (j>0){
 			GPIOA->ODR &= ~(uint32_t) 0b01<<5;
 			j--;
-	}
+	}*/
 //uloha3(2)
+	/*
 	if (BUTTON == 1){
 		GPIOA->ODR |= (uint32_t) 0b01<<5;
 	}
 	else if (BUTTON == 0){
 		GPIOA->ODR &= ~(uint32_t) 0b01<<5;
-	}
+	}*/
 //uloha3(3)
-	if ((BUTTON_OLD == 0) && (BUTTON == 1)){
-		Change_Mod = (Change_Mod + 1) % 2;
+/*
+    if (check>100){
+		if ((BUTTON_OLD == 0) && (BUTTON == 1)){
+			check = 0;
+			Change_Mod = (Change_Mod + 1) % 2;
+		}
 	}
+	check++;
 	if (Change_Mod == 1){
 		GPIOA->ODR |= (uint32_t) 0b01<<5;
 	}
@@ -111,7 +119,7 @@ int main(void)
 		GPIOA->ODR &= ~(uint32_t) 0b01<<5;
 	}
 	BUTTON_OLD = BUTTON;
-
+*/
   }
   return 0;
 }
