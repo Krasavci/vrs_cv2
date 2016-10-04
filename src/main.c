@@ -53,6 +53,8 @@ int main(void)
   int BUTTON = 0;
   int BUTTON_OLD = 0;
   int Change_Mod = 0;
+  GPIO_InitTypeDef GPIOinitS;
+  GPIO_InitTypeDef GPIOinitC;
   int check = 0;
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
@@ -60,7 +62,26 @@ int main(void)
   /* TODO - Add your application code here */
 
   //uloha 1
+  GPIOinitS.GPIO_Pin = GPIO_Pin_5;
+  GPIOinitS.GPIO_Mode = GPIO_Mode_OUT;
+  GPIOinitS.GPIO_OType = GPIO_OType_PP;
+  GPIOinitS.GPIO_PuPd = GPIO_PuPd_UP;
+  GPIOinitS.GPIO_Speed = GPIO_Speed_40MHz;
 
+  GPIO_Init(GPIOA, &GPIOinitS);
+
+  GPIOinitC.GPIO_Mode = GPIO_Mode_IN;
+  GPIOinitC.GPIO_OType = GPIO_OType_PP;
+  GPIOinitC.GPIO_Pin = GPIO_Pin_13;
+  GPIOinitC.GPIO_PuPd = GPIO_PuPd_NOPULL;
+
+  GPIO_Init(GPIOC, &GPIOinitC);
+
+  GPIO_SetBits(GPIOA, GPIO_Pin_5);
+  GPIO_ResetBits(GPIOA, GPIO_Pin_5);
+
+  /*
+  //uloha 1
   GPIOA->MODER |= (uint32_t) 0b01<<10;
   GPIOA->OTYPER &= ~(uint32_t) 0b1<<5;
   GPIOA->PUPDR |= (uint32_t) 0b01<<10;
@@ -77,7 +98,7 @@ int main(void)
   GPIOC->MODER &= ~(uint32_t) 0b11<<26;
   GPIOC->OTYPER &= ~(uint32_t) 0b1<<13;
   GPIOC->PUPDR &= ~(uint32_t) 0b11<<26;
-
+*/
 
   /* Infinite loop */
   while (1)
