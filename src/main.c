@@ -105,8 +105,15 @@ int main(void)
 		j++;
 	}
 	while (j>0){
-			GPIOA->ODR |= (uint32_t) 0b01<<5;
+			GPIOA->ODR &= ~(uint32_t) 0b01<<5;
 			j--;
+	}
+//uloha3(2)
+	if (BUTTON == 1){
+		GPIOA->ODR |= (uint32_t) 0b01<<5;
+	}
+	else if (BUTTON == 0){
+		GPIOA->ODR &= ~(uint32_t) 0b01<<5;
 	}
   }
   return 0;
