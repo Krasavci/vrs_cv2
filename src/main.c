@@ -49,7 +49,9 @@ SOFTWARE.
 int main(void)
 {
   int i = 0;
+  int button = 0;
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
 
   /**
   *  IMPORTANT NOTE!
@@ -69,6 +71,9 @@ int main(void)
   */
 
   /* TODO - Add your application code here */
+
+  //uloha 1
+  /*
   GPIOA->MODER |= (uint32_t) 0b01<<10;
   GPIOA->OTYPER &= ~(uint32_t) 0<<5;
   GPIOA->PUPDR |= (uint32_t) 0b01<<10;
@@ -79,20 +84,19 @@ int main(void)
 
   GPIOA->BSRRL |= (uint32_t) 0b01<<5;
   GPIOA->BSRRH |= (uint32_t) 0b01<<5;
+*/
 
-  GPIOA->MODER &= ~(uint32_t) 0<<13;
-  GPIOA->OTYPER &= ~(uint32_t) 0<<13;
-  GPIOA->PUPDR &= ~(uint32_t) 0<<13;
+  //uloha 2
+  GPIOC->MODER &= ~(uint32_t) 0b11<<26;
+  GPIOC->OTYPER &= ~(uint32_t) 0b1<<13;
+  GPIOC->PUPDR &= ~(uint32_t) 0b11<<26;
 
-  int BUTTON= 0;
 
   /* Infinite loop */
   while (1)
   {
 	i++;
-	GPIOA->ODR ^= (uint32_t) 0b01<<5;
-//	if GPIOA->IDR (uint32_t) 0b== 1
-//			BUTTON= (BUTTON+1)%2;
+	button = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13);
   }
   return 0;
 }
