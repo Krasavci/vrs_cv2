@@ -76,6 +76,7 @@ int main(void)
   while (1)
   {
 	i++;
+
 	BUTTON = ((GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13))+1)%2;
 
 	//uloha3(2.1)
@@ -134,9 +135,9 @@ int main(void)
 	else if (BUTTON == 0){
 		GPIOA->ODR &= ~(uint32_t) 0b01<<5;
 	}*/
-//uloha3(3.3)
+//uloha3(1.3)
 /*
-    if (check>100){
+    if (check>1000){
 		if ((BUTTON_OLD == 0) && (BUTTON == 1)){
 			check = 0;
 			Change_Mod = (Change_Mod + 1) % 2;

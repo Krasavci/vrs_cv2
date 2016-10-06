@@ -535,6 +535,7 @@ int main(void)
  80003ce:	6a7b      	ldr	r3, [r7, #36]	; 0x24
  80003d0:	3301      	adds	r3, #1
  80003d2:	627b      	str	r3, [r7, #36]	; 0x24
+
 	BUTTON = ((GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13))+1)%2;
  80003d4:	f44f 5100 	mov.w	r1, #8192	; 0x2000
  80003d8:	481d      	ldr	r0, [pc, #116]	; (8000450 <main+0xfc>)
